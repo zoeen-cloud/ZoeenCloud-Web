@@ -48,17 +48,17 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <TeamMember
               image="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
-              name="Mohammed Zohaib"
+              name="Mohammed Matheen"
               role="CEO & Founder"
             />
             <TeamMember
               image="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
-              name="Sarah Johnson"
+              name="Zoya Fathima"
               role="CTO"
             />
             <TeamMember
               image="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
-              name="Michael Chen"
+              name="Indravesh Anand"
               role="Head of DevOps"
             />
           </div>
