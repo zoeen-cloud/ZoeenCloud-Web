@@ -35,7 +35,7 @@ export default function Footer() {
               <FooterLink href="/about">About Us</FooterLink>
               <FooterLink href="/internships">Internships</FooterLink>
               <FooterLink href="/contact">Contact</FooterLink>
-              <FooterLink href="/login">Login</FooterLink>
+              {/* <FooterLink href="/login">Login</FooterLink> */}
             </ul>
           </div>
 
