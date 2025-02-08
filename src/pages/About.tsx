@@ -47,17 +47,17 @@ export default function About() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <TeamMember
-              image="https://images.unsplash.com/photo-1560250097-0b93528c311a"
-              name="John Smith"
+              image="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
+              name="Mohammed Zohaib"
               role="CEO & Founder"
             />
             <TeamMember
-              image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2"
+              image="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
               name="Sarah Johnson"
               role="CTO"
             />
             <TeamMember
-              image="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7"
+              image="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
               name="Michael Chen"
               role="Head of DevOps"
             />
@@ -101,8 +101,10 @@ function TeamMember({ image, name, role }: { image: string, name: string, role: 
       whileHover={{ scale: 1.05 }}
       className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-800/50 backdrop-blur-sm rounded-lg overflow-hidden"
     >
-      <img src={image} alt={name} className="w-full h-64 object-cover" />
-      <div className="p-4">
+      <div className="p-4 flex flex-col items-center">
+        <div className="w-48 h-48 mb-4 rounded-full overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+          <img src={image} alt={name} className="w-40 h-40 object-contain" />
+        </div>
         <h3 className="text-xl font-semibold mb-1 text-gray-200">{name}</h3>
         <p className="text-gray-400">{role}</p>
       </div>
