@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Book, Clock, Mail, GraduationCap } from 'lucide-react';
+import { Book, Clock, Mail, GraduationCap, DollarSign } from 'lucide-react';
 
 interface Internship {
   id: number;
   title: string;
   description: string;
-  duration: string;
+  durations: {
+    months: number;
+    price: number;
+  }[];
   requirements: string[];
 }
 
@@ -16,7 +19,12 @@ export default function Internships() {
       id: 1,
       title: "DevOps Engineering Internship",
       description: "Learn modern DevOps practices including CI/CD, containerization, and cloud infrastructure management.",
-      duration: "3 months",
+      durations: [
+        {
+          months: 3,
+          price: 2000
+        }
+      ],
       requirements: [
         "Basic understanding of Linux systems",
         "Knowledge of at least one programming language",
@@ -28,7 +36,16 @@ export default function Internships() {
       id: 2,
       title: "Full Stack Development Internship",
       description: "Master both frontend and backend development with modern technologies and best practices.",
-      duration: "4 months",
+      durations: [
+        {
+          months: 3,
+          price: 2000
+        },
+        {
+          months: 6,
+          price: 4000
+        }
+      ],
       requirements: [
         "HTML, CSS, and JavaScript fundamentals",
         "Basic understanding of databases",
@@ -40,7 +57,7 @@ export default function Internships() {
 
   const handleApply = (internshipTitle: string) => {
     const subject = encodeURIComponent(`Application for ${internshipTitle}`);
-    const body = encodeURIComponent(`Dear Mohammed,\n\nI am interested in applying for the ${internshipTitle} position.\n\nPlease find my details below:\n\nName:\nPhone:\nEducation:\nRelevant Experience:\n\nBest regards,`);
+    const body = encodeURIComponent(`Dear Mohammed,\n\nI am interested in applying for the ${internshipTitle} position.\n\nPlease find my details below:\n\nName:\nPhone:\nEducation:\nRelevant Experience:\nPreferred Duration:\n\nBest regards,`);
     window.location.href = `mailto:mohammed@zoeencloud.in?subject=${subject}&body=${body}`;
   };
 
@@ -57,12 +74,16 @@ export default function Internships() {
           <div className="flex flex-col items-center text-center">
             <GraduationCap className="w-16 h-16 text-gray-400 mb-6" />
             <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-200 to-gray-400 mb-6">
-              Internship Programs
+              Fee-Based Internship Programs
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
-              Launch your career in tech with our comprehensive internship programs.
-              Learn from industry experts and gain hands-on experience.
+              Invest in your future with our comprehensive internship programs.
+              Learn from industry experts and gain hands-on experience with professional guidance.
             </p>
+            <div className="mt-6 text-gray-400 flex items-center">
+              <DollarSign className="w-5 h-5 mr-2" />
+              <span>Fee-based professional training program</span>
+            </div>
           </div>
         </motion.div>
       </section>
@@ -84,10 +105,13 @@ export default function Internships() {
                   <p className="text-gray-300 mb-6">{internship.description}</p>
                   
                   <div className="space-y-4 mb-8">
-                    <div className="flex items-center text-gray-300">
-                      <Clock className="w-5 h-5 mr-3 text-gray-400" />
-                      <span>Duration: {internship.duration}</span>
-                    </div>
+                    <div className="text-sm text-gray-400 mb-2">Program Fee:</div>
+                    {internship.durations.map((duration, index) => (
+                      <div key={index} className="flex items-center text-gray-300">
+                        <Clock className="w-5 h-5 mr-3 text-gray-400" />
+                        <span>{duration.months} months - ₹{duration.price.toLocaleString()}</span>
+                      </div>
+                    ))}
                     <div className="flex items-center text-gray-300">
                       <Book className="w-5 h-5 mr-3 text-gray-400" />
                       <span>Certificate Upon Completion</span>

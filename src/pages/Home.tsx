@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Cloud, Server, Code, Shield } from 'lucide-react';
+import { Cloud, Server, Code, Shield, GraduationCap, DollarSign, Clock } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -74,8 +74,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Internship Programs Section */}
       <section className="py-20 bg-[#0A0A0F]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <GraduationCap className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-200 to-gray-400 mb-4">
+              Fee-Based Professional Internship Programs
+            </h2>
+            <div className="flex items-center justify-center text-gray-400 mb-4">
+              <DollarSign className="w-5 h-5 mr-2" />
+              <span>Professional training with industry experts</span>
+            </div>
+            <p className="text-gray-300 max-w-3xl mx-auto">
+              Launch your tech career with our comprehensive training programs. Learn from experienced professionals and gain hands-on experience in DevOps and Full Stack Development.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <InternshipCard
+              title="DevOps Engineering"
+              duration="3 months"
+              price="₹2,000"
+              features={[
+                "CI/CD Pipeline Implementation",
+                "Cloud Infrastructure Management",
+                "Container Orchestration",
+                "Industry-Standard Tools"
+              ]}
+            />
+            <InternshipCard
+              title="Full Stack Development"
+              duration="3-6 months"
+              price="₹2,000 - ₹4,000"
+              features={[
+                "Frontend & Backend Development",
+                "Database Management",
+                "API Development",
+                "Modern Web Technologies"
+              ]}
+            />
+          </div>
+
+          <div className="text-center mt-8">
+            <a
+              href="/internships"
+              className="inline-flex items-center bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-all"
+            >
+              View Program Details
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-[#0D0D14]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-gray-200 to-gray-400">
             Why Choose Us
@@ -121,6 +177,40 @@ function ServiceCard({ icon, title, description, link }: {
         <p className="text-gray-400">{description}</p>
       </div>
     </motion.a>
+  );
+}
+
+function InternshipCard({ title, duration, price, features }: { 
+  title: string, 
+  duration: string, 
+  price: string,
+  features: string[] 
+}) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      className="p-6 rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-800/50 backdrop-blur-sm"
+    >
+      <h3 className="text-xl font-semibold mb-4 text-gray-100">{title}</h3>
+      <div className="flex items-center mb-4">
+        <Clock className="w-5 h-5 text-gray-400 mr-2" />
+        <span className="text-gray-300">{duration}</span>
+      </div>
+      <div className="flex items-center mb-6">
+        <DollarSign className="w-5 h-5 text-gray-400 mr-2" />
+        <span className="text-gray-300">{price}</span>
+      </div>
+      <ul className="space-y-2">
+        {features.map((feature, index) => (
+          <li key={index} className="flex items-start">
+            <svg className="w-5 h-5 text-gray-400 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span className="text-gray-300">{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
   );
 }
 
